@@ -2,6 +2,10 @@
 
 Este projeto utiliza Terraform para gerenciar recursos na AWS e na Azure. Abaixo estão descritos os recursos gerenciados em cada provedor de nuvem.
 
+## Visão geral da infraestrutura
+
+![Recursos Gerenciados na AWS e na Azure](images/app-staticsite-lb-peering-multicloud.png)
+
 ## Recursos Gerenciados
 
 | Recurso                | AWS                                      | Azure                                      |
