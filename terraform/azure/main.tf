@@ -92,8 +92,8 @@ resource "azurerm_subnet_network_security_group_association" "nsgsnvnet10pub" {
     network_security_group_id = azurerm_network_security_group.nsgvnet10.id
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsgsnvnet20pub" {
-    subnet_id                 = azurerm_subnet.snvnet20pub.id
+resource "azurerm_subnet_network_security_group_association" "nsgsnvnet20priv" {
+    subnet_id                 = azurerm_subnet.snvnet20priv.id
     network_security_group_id = azurerm_network_security_group.nsgvnet20.id
 }
 
