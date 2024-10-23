@@ -59,9 +59,42 @@ resource "azurerm_network_security_group" "nsgvnet10" {
     }
 }
 
+resource "azurerm_network_security_group" "nsgvnet20" {
+    name                = "nsgvnet20"
+    location            = azurerm_resource_group.rg.location
+    resource_group_name = azurerm_resource_group.rg.name
+    security_rule {
+        name                       = "HTTP"
+        priority                   = 1001
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "80"
+        source_address_prefix      = "10.0.0.0/16"
+        destination_address_prefix = "*"
+    }
+    security_rule {
+        name                       = "FTP"
+        priority                   = 1011
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "22"
+        source_address_prefix      = "*"
+        destination_address_prefix = "10.0.0.0/16"
+    }
+}
+
 resource "azurerm_subnet_network_security_group_association" "nsgsnvnet10pub" {
     subnet_id                 = azurerm_subnet.snvnet10pub.id
     network_security_group_id = azurerm_network_security_group.nsgvnet10.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "nsgsnvnet20pub" {
+    subnet_id                 = azurerm_subnet.snvnet20pub.id
+    network_security_group_id = azurerm_network_security_group.nsgvnet20.id
 }
 
 resource "azurerm_virtual_network_peering" "vnet10-to-vnet20" {
