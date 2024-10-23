@@ -30,3 +30,17 @@ resource "azurerm_subnet" "snvnet20priv" {
     virtual_network_name = azurerm_virtual_network.vnet20.name
     address_prefixes     = ["20.0.1.0/24"]
 }
+
+resource "azurerm_virtual_network_peering" "vnet10-to-vnet20" {
+  name                         = "vnet10-to-vnet20"
+  resource_group_name          = azurerm_resource_group.rg.name
+  virtual_network_name         = azurerm_virtual_network.vnet10.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet20.id
+}
+
+resource "azurerm_virtual_network_peering" "vnet20-to-vnet10" {
+  name                         = "vnet20-to-vnet10"
+  resource_group_name          = azurerm_resource_group.rg.name
+  virtual_network_name         = azurerm_virtual_network.vnet20.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet10.id
+}
