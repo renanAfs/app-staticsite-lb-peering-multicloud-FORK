@@ -20,13 +20,13 @@ resource "azurerm_virtual_network" "vnet20" {
 resource "azurerm_subnet" "snvnet10pub" {
     name                 = "snvnet10pub"
     resource_group_name  = azurerm_resource_group.rg.name
-    virtual_network_name = azurerm_virtual_network.vnet.name
+    virtual_network_name = azurerm_virtual_network.vnet10.name
     address_prefixes     = ["10.0.1.0/24"]
 }
 
 resource "azurerm_subnet" "snvnet20priv" {
     name                 = "snvnet20priv"
     resource_group_name  = azurerm_resource_group.rg.name
-    virtual_network_name = azurerm_virtual_network.vnet.name
+    virtual_network_name = azurerm_virtual_network.vnet20.name
     address_prefixes     = ["20.0.1.0/24"]
 }
