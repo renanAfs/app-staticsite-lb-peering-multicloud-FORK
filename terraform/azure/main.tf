@@ -125,7 +125,7 @@ resource "azurerm_network_interface" "vm01-nic" {
     resource_group_name = azurerm_resource_group.rg.name
     ip_configuration {
         name                          = "vm01-ipconfig"
-        subnet_id                     = azurerm_subnet.subnet.id
+        subnet_id                     = azurerm_subnet.snvnet10pub.id
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.vm01-pip.id
     }
