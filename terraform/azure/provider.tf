@@ -7,7 +7,7 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "rg-staticsitelbpeeringtf"
-    storage_account_name = "staticsitelbpeeringtf"
+    storage_account_name = "staticsitelbpeeringtfkb"
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
   }
