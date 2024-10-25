@@ -18,18 +18,18 @@ resource "azurerm_virtual_network" "vnet20" {
 }
 
 resource "azurerm_virtual_network_peering" "vnet10-to-vnet20" {
-  name                         = "vnet10-to-vnet20"
-  resource_group_name          = azurerm_resource_group.rg.name
-  virtual_network_name         = azurerm_virtual_network.vnet10.name
-  remote_virtual_network_id    = azurerm_virtual_network.vnet20.id
-  allow_forwarded_traffic      = true
+  name                      = "vnet10-to-vnet20"
+  resource_group_name       = azurerm_resource_group.rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet10.name
+  remote_virtual_network_id = azurerm_virtual_network.vnet20.id
+  allow_forwarded_traffic   = true
 }
 
 # resource "azurerm_virtual_network_peering" "vnet20-to-vnet10" {
-#   name                         = "vnet20-to-vnet10"
-#   resource_group_name          = azurerm_resource_group.rg.name
-#   virtual_network_name         = azurerm_virtual_network.vnet20.name
-#   remote_virtual_network_id    = azurerm_virtual_network.vnet10.id
+#   name                      = "vnet20-to-vnet10"
+#   resource_group_name       = azurerm_resource_group.rg.name
+#   virtual_network_name      = azurerm_virtual_network.vnet20.name
+#   remote_virtual_network_id = azurerm_virtual_network.vnet10.id
 # }
 
 resource "azurerm_subnet" "snvnet10pub" {
