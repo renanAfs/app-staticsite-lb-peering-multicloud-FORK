@@ -20,4 +20,5 @@ resource "aws_instance" "ec2_private" {
     instance_type          = "t2.micro"
     subnet_id              = aws_subnet.sn_vpc20_priv.id
     vpc_security_group_ids = [aws_security_group.sg_private.id]
+    key_name               = "vockey"
 }

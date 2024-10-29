@@ -32,4 +32,5 @@ resource "aws_instance" "ec2_public" {
     instance_type          = "t2.micro"
     subnet_id              = aws_subnet.sn_vpc10_pub.id
     vpc_security_group_ids = [aws_security_group.sg_public.id]
+    key_name               = "vockey"
 }
