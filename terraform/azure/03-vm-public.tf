@@ -4,10 +4,6 @@ resource "azurerm_availability_set" "as_public" {
     resource_group_name = azurerm_resource_group.rg.name
 }
 
-data "template_file" "cloud_init_public" {
-    template = "${file("./scripts/cloud_init.sh")}"
-}
-
 resource "azurerm_public_ip" "vm01_pip_public" {
     name                = "vm01-pip-public"
     location            = azurerm_resource_group.rg.location
@@ -53,7 +49,6 @@ resource "azurerm_virtual_machine" "vm01_public" {
         computer_name  = "vm01-public"
         admin_username = "azureuser"
         admin_password = "Password1234!"
-        custom_data    = "${base64encode(data.template_file.cloud_init_public.rendered)}"
     }
     os_profile_linux_config {
         disable_password_authentication = false

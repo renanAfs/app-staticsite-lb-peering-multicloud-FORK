@@ -4,10 +4,6 @@ resource "azurerm_availability_set" "as_private" {
     resource_group_name = azurerm_resource_group.rg.name
 }
 
-data "template_file" "cloud_init_private" {
-    template = "${file("./scripts/cloud_init.sh")}"
-}
-
 resource "azurerm_network_interface" "vm02_nic_private" {
     name                = "vm02-nic-private"
     location            = azurerm_resource_group.rg.location
@@ -44,7 +40,6 @@ resource "azurerm_virtual_machine" "vm02_private" {
         computer_name  = "vm02-private"
         admin_username = "azureuser"
         admin_password = "Password1234!"
-        custom_data    = "${base64encode(data.template_file.cloud_init_private.rendered)}"
     }
     os_profile_linux_config {
         disable_password_authentication = false
