@@ -24,7 +24,7 @@ resource "azurerm_network_interface" "vm01_nic_public" {
         name                          = "vm01-ipconfig-public"
         subnet_id                     = azurerm_subnet.snvnet10pub.id
         private_ip_address_allocation = "Dynamic"
-        public_ip_address_id          = azurerm_public_ip.vm01-pip.id
+        public_ip_address_id          = azurerm_public_ip.vm01_pip_public.id
     }
 }
 
