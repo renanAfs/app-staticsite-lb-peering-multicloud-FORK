@@ -46,25 +46,25 @@ resource "azurerm_network_security_group" "nsgvnet10" {
     location            = azurerm_resource_group.rg.location
     resource_group_name = azurerm_resource_group.rg.name
     security_rule {
-        name                       = "Inbound-All-HTTP"
+        name                       = "Inbound-Internet-HTTP"
         priority                   = 1001
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "80"
-        source_address_prefix      = "*"
+        source_address_prefix      = "Internet"
         destination_address_prefix = "*"
     }
     security_rule {
-        name                       = "Inbound-All-FTP"
+        name                       = "Inbound-Internet-SSH"
         priority                   = 1011
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "22"
-        source_address_prefix      = "*"
+        source_address_prefix      = "Internet"
         destination_address_prefix = "*"
     }
 }
