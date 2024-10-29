@@ -25,12 +25,12 @@ resource "azurerm_virtual_network_peering" "vnet10-to-vnet20" {
   allow_forwarded_traffic   = true
 }
 
-# resource "azurerm_virtual_network_peering" "vnet20-to-vnet10" {
-#   name                      = "vnet20-to-vnet10"
-#   resource_group_name       = azurerm_resource_group.rg.name
-#   virtual_network_name      = azurerm_virtual_network.vnet20.name
-#   remote_virtual_network_id = azurerm_virtual_network.vnet10.id
-# }
+resource "azurerm_virtual_network_peering" "vnet20-to-vnet10" {
+  name                      = "vnet20-to-vnet10"
+  resource_group_name       = azurerm_resource_group.rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet20.name
+  remote_virtual_network_id = azurerm_virtual_network.vnet10.id
+}
 
 resource "azurerm_subnet" "snvnet10pub" {
     name                 = "snvnet10pub"
@@ -137,7 +137,7 @@ resource "azurerm_virtual_machine" "vm01" {
     resource_group_name              = azurerm_resource_group.rg.name
     network_interface_ids            = [azurerm_network_interface.vm01-nic.id]
     availability_set_id              = azurerm_availability_set.as.id
-    vm_size                          = "DC1s_v3"
+    vm_size                          = "Standard_D2a_v4"
     delete_os_disk_on_termination    = true
     delete_data_disks_on_termination = true
     storage_image_reference {
