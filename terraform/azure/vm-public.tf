@@ -34,7 +34,7 @@ resource "azurerm_virtual_machine" "vm01" {
     resource_group_name              = azurerm_resource_group.rg.name
     network_interface_ids            = [azurerm_network_interface.vm01-nic.id]
     availability_set_id              = azurerm_availability_set.as.id
-    vm_size                          = "D2as_v4"
+    vm_size                          = "Standard_D2s_v3"
     delete_os_disk_on_termination    = true
     delete_data_disks_on_termination = true
     storage_image_reference {
