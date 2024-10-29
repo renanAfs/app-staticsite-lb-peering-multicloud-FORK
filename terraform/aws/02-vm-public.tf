@@ -1,6 +1,6 @@
 resource "aws_security_group" "sg_public" {
     name   = "sg_public"
-    vpc_id = aws.vpc10.id
+    vpc_id = aws_vpc.vpc10.id
     egress {
         from_port   = 0
         to_port     = 0
