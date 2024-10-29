@@ -1,8 +1,3 @@
-resource "azurerm_resource_group" "rg" {
-    name     = "rg-staticsitelbpeering"
-    location = "canadacentral"
-}
-
 resource "azurerm_virtual_network" "vnet10" {
     name                = "vnet10"
     location            = azurerm_resource_group.rg.location
@@ -94,7 +89,6 @@ resource "azurerm_network_security_group" "nsgvnet20" {
 resource "azurerm_subnet_network_security_group_association" "nsgsnvnet10pub" {
     subnet_id                 = azurerm_subnet.snvnet10pub.id
     network_security_group_id = azurerm_network_security_group.nsgvnet10.id
-    depends_on                = [ azurerm_subnet.snvnet10pub ]
 }
 
 resource "azurerm_subnet_network_security_group_association" "nsgsnvnet20priv" {
