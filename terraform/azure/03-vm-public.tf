@@ -44,14 +44,14 @@ resource "azurerm_virtual_machine" "vm01_public" {
         version   = "latest"
     }
     storage_os_disk {
-        name              = "vm01-os-disk"
+        name              = "vm01-os-disk-public"
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Standard_LRS"
     }
     os_profile {
-        computer_name  = "vm01"
-        admin_username = "vmuser"
+        computer_name  = "vm01-public"
+        admin_username = "azureuser"
         admin_password = "Password1234!"
         custom_data    = "${base64encode(data.template_file.cloud_init_public.rendered)}"
     }
