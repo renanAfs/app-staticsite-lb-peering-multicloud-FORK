@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg_private" {
-    name   = "sg_public"
+    name   = "sg_private"
     vpc_id = aws_vpc.vpc20.id
     egress {
         from_port   = 0
