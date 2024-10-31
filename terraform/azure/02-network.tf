@@ -45,7 +45,7 @@ resource "azurerm_network_security_group" "nsgvnet10" {
     location            = azurerm_resource_group.rg.location
     resource_group_name = azurerm_resource_group.rg.name
     security_rule {
-        name                       = "Allow-Inbound-Internet-SSH"
+        name                       = "AllowInternetSshInbound"
         priority                   = 1011
         direction                  = "Inbound"
         access                     = "Allow"
@@ -62,7 +62,7 @@ resource "azurerm_network_security_group" "nsgvnet20" {
     location            = azurerm_resource_group.rg.location
     resource_group_name = azurerm_resource_group.rg.name
     security_rule {
-        name                       = "Deny-Inbound-Internet-All"
+        name                       = "DenyInternetInbound"
         priority                   = 1001
         direction                  = "Inbound"
         access                     = "Deny"

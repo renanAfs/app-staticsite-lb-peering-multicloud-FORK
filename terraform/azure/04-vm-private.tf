@@ -1,9 +1,3 @@
-resource "azurerm_availability_set" "as_private" {
-    name                = "as-private"
-    location            = azurerm_resource_group.rg.location
-    resource_group_name = azurerm_resource_group.rg.name
-}
-
 resource "azurerm_network_interface" "vm02_nic_private" {
     name                = "vm02-nic-private"
     location            = azurerm_resource_group.rg.location
@@ -16,14 +10,12 @@ resource "azurerm_network_interface" "vm02_nic_private" {
 }
 
 resource "azurerm_virtual_machine" "vm02_private" {
-    name                             = "vm02-private"
-    location                         = azurerm_resource_group.rg.location
-    resource_group_name              = azurerm_resource_group.rg.name
-    network_interface_ids            = [azurerm_network_interface.vm02_nic_private.id]
-    availability_set_id              = azurerm_availability_set.as_private.id
-    vm_size                          = "Standard_D2s_v3"
-    delete_os_disk_on_termination    = true
-    delete_data_disks_on_termination = true
+    name                          = "vm02-private"
+    location                      = azurerm_resource_group.rg.location
+    resource_group_name           = azurerm_resource_group.rg.name
+    network_interface_ids         = [azurerm_network_interface.vm02_nic_private.id]
+    vm_size                       = "Standard_D2s_v3"
+    delete_os_disk_on_termination = true
     storage_image_reference {
         publisher = "Canonical"
         offer     = "0001-com-ubuntu-server-jammy"
@@ -32,7 +24,6 @@ resource "azurerm_virtual_machine" "vm02_private" {
     }
     storage_os_disk {
         name              = "vm02-os-disk-private"
-        caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Standard_LRS"
     }
