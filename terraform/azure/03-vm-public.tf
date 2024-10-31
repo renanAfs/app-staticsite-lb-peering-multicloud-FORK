@@ -8,7 +8,7 @@ resource "azurerm_public_ip" "vm01_pip_public" {
     name                = "vm01-pip-public"
     location            = azurerm_resource_group.rg.location
     resource_group_name = azurerm_resource_group.rg.name
-    allocation_method   = "Dynamic"
+    allocation_method   = "Static"
     domain_name_label   = "vm01-pip-public"
 }
 
