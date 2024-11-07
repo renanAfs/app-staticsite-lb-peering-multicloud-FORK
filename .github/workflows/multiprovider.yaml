@@ -68,4 +68,4 @@ jobs:
     - run: terraform -chdir=./terraform/azure apply tfplan
     - run: terraform -chdir=./terraform/azure show
     
-    
+
