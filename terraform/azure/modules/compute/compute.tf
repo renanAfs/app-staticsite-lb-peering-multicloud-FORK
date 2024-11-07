@@ -62,8 +62,7 @@ resource "azurerm_virtual_machine" "vm01_public" {
     os_profile {
         computer_name  = "vm01-public"
         admin_username = "azureuser"
-        admin_password = "Password1234!"
-        custom_data = 
+        admin_password = "Password1234!" 
         custom_data    = <<-EOF
          #!/bin/bash
             sudo apt-get update
@@ -79,7 +78,7 @@ resource "azurerm_virtual_machine" "vm01_public" {
           app.run(host='0.0.0.0', port=5000)
           EOF2
           nohup python3 /home/ubuntu/app.py &
-        EOF
+        EOF 
     }
     os_profile_linux_config {
         disable_password_authentication = false
