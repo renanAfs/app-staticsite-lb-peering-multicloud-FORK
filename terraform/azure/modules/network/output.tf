@@ -11,11 +11,11 @@ output "vnet20" {
 }
 
 output "snvnet10pub1a" {
- value = azurerm_subnet.sn_vpc10_pub1a.id
+ value = azurerm_subnet.snvnet10pub1a.id
 }
 
-output "sn_vpc10_pub1b" {
- value = azurerm_subnet.sn_vpc10_pub1b.id
+output "snvnet10pub1b" {
+ value = azurerm_subnet.snvnet10pub1b.id
 }
 
 output "snvnet20priv" {
