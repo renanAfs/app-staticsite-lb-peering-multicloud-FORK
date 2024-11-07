@@ -9,5 +9,6 @@ module "compute" {
  vpc20_id = module.network.vpc20_id
  sn_vpc10_pub1a = module.network.sn_vpc10_pub1a
  sn_vpc10_pub1b = module.network.sn_vpc10_pub1b
+ sn_vpc10_priv = module.network.sn_vpc10_priv
  sn_vpc20_priv = module.network.sn_vpc20_priv
 }
