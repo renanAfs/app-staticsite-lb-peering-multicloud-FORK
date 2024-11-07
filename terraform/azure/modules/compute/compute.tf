@@ -2,15 +2,15 @@
 
 resource "azurerm_public_ip" "publiciplb" {
   name                = "PublicIPForLB"
-  location            = var.rg.location
-  resource_group_name = var.rg.name
+  location            = var.rg
+  resource_group_name = var.rg
   allocation_method   = "Static"
 }
 
 resource "azurerm_lb" "lbvnet10" {
   name                = "TestLoadBalancer"
-  location            = var.rg.location
-  resource_group_name = var.rg.name
+  location            = var.rg
+  resource_group_name = var.rg
 
   frontend_ip_configuration {
     name                 = "PublicIPAddress"
@@ -23,19 +23,19 @@ resource "azurerm_lb" "lbvnet10" {
 
 resource "azurerm_public_ip" "vm01_pip_public" {
     name                = "vm01-pip-public"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     allocation_method   = "Static"
     domain_name_label   = "vm01-pip-public"
 }
 
 resource "azurerm_network_interface" "vm01_nic_public" {
     name                = "vm01-nic-public"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     ip_configuration {
         name                          = "vm01-ipconfig-public"
-        subnet_id                     = var.snvnet10pub1a.id
+        subnet_id                     = var.snvnet10pub1a
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.vm01_pip_public.id
     }
@@ -43,8 +43,8 @@ resource "azurerm_network_interface" "vm01_nic_public" {
 
 resource "azurerm_virtual_machine" "vm01_public" {
     name                          = "vm01-public"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     network_interface_ids         = [azurerm_network_interface.vm01_nic_public.id]
     vm_size                       = "Standard_D2s_v3"
     delete_os_disk_on_termination = true
@@ -89,19 +89,19 @@ resource "azurerm_virtual_machine" "vm01_public" {
 
 resource "azurerm_public_ip" "vm02_pip_public" {
     name                = "vm02-pip-public"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     allocation_method   = "Static"
     domain_name_label   = "vm02-pip-public"
 }
 
 resource "azurerm_network_interface" "vm02_nic_public" {
     name                = "vm02-nic-public"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     ip_configuration {
         name                          = "vm02-ipconfig-public"
-        subnet_id                     = var.snvnet10pub1b.id
+        subnet_id                     = var.snvnet10pub1b
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.vm02_pip_public.id
     }
@@ -109,8 +109,8 @@ resource "azurerm_network_interface" "vm02_nic_public" {
 
 resource "azurerm_virtual_machine" "vm02_public" {
     name                          = "vm02-public"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     network_interface_ids         = [azurerm_network_interface.vm02_nic_public.id]
     vm_size                       = "Standard_D2s_v3"
     delete_os_disk_on_termination = true
@@ -159,11 +159,11 @@ resource "azurerm_virtual_machine" "vm02_public" {
 
 resource "azurerm_network_interface" "vm02_nic_private" {
     name                = "vm02-nic-private"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     ip_configuration {
         name                          = "vm02-ipconfig-private"
-        subnet_id                     = var.snvnet20priv.id
+        subnet_id                     = var.snvnet20priv
         private_ip_address_allocation = "Dynamic"
     }
 }
@@ -172,8 +172,8 @@ resource "azurerm_network_interface" "vm02_nic_private" {
 
 resource "azurerm_virtual_machine" "vm02_private" {
     name                          = "vm02-private"
-    location            = var.rg.location
-    resource_group_name = var.rg.name
+    location            = var.rg
+    resource_group_name = var.rg
     network_interface_ids         = [azurerm_network_interface.vm02_nic_private.id]
     vm_size                       = "Standard_D2s_v3"
     delete_os_disk_on_termination = true
