@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "staticsitelbpeeringtf"
+    bucket         = "staticsitelbtfrenan"
     key            = "terraform.tfstate"
-    dynamodb_table = "staticsitelbpeeringtf"
+    dynamodb_table = "staticsitelbtfrenan"
     region         = "us-east-1"
   }
 }
