@@ -70,7 +70,7 @@ resource "aws_security_group" "sg_private" {
 resource "aws_lb" "ec2_lb" {
   name               = "ec2-elb"
   load_balancer_type = "application"
-  subnets            = [var.sn_vpc10_pub1a, var.sn_vpc10_priv]
+  subnets            = [var.sn_vpc10_pub1a, var.sn_vpc10_pub1b]
   security_groups    = [aws_security_group.sg_elb.id]
 }
 

@@ -18,7 +18,7 @@ resource "aws_subnet" "sn_vpc10_pub1a" {
 resource "aws_subnet" "sn_vpc10_pub1b" {
     vpc_id                  = aws_vpc.vpc10.id
     cidr_block              = "10.0.2.0/24"
-    availability_zone       = "us-east-1a"
+    availability_zone       = "us-east-1c"
     map_public_ip_on_launch = true
 }
 
