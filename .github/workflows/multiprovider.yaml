@@ -23,10 +23,10 @@ jobs:
     - uses: actions/checkout@v4
     - uses: aws-actions/configure-aws-credentials@v4
       with:
-        # aws-access-key-id    : ${{ secrets.AWS_ACCESS_KEY_ID }}
-        # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        # aws-session-token    : ${{ secrets.AWS_SESSION_TOKEN }}
-        # aws-region           : us-east-1
+        aws-access-key-id    : ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-session-token    : ${{ secrets.AWS_SESSION_TOKEN }}
+        aws-region           : us-east-1
     - run: terraform -chdir=./terraform/aws init
     - run: terraform -chdir=./terraform/aws validate
     - run: terraform -chdir=./terraform/azure init
@@ -42,9 +42,9 @@ jobs:
     - uses: actions/checkout@v4
     - uses: aws-actions/configure-aws-credentials@v4
       with:
-        # aws-access-key-id    : ${{ secrets.AWS_ACCESS_KEY_ID }}
-        # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        # aws-session-token    : ${{ secrets.AWS_SESSION_TOKEN }}
+        aws-access-key-id    : ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-session-token    : ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region           : us-east-1
     - run: terraform -chdir=./terraform/aws init
     # - run : pip3 install checkov
