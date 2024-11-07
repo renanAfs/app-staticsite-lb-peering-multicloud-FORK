@@ -21,7 +21,7 @@ resource "azurerm_lb" "lbvnet10" {
 
 #vm1 publica
 
-resource "azurerm_public_ip" "vm01_pip_public" {
+resource "azurerm_public_ip" "vm01_pip_public1a" {
     name                = "vm01-pip-public"
     location            = var.rglocation
   resource_group_name = var.rgname
@@ -37,7 +37,7 @@ resource "azurerm_network_interface" "vm01_nic_public" {
         name                          = "vm01-ipconfig-public"
         subnet_id                     = var.snvnet10pub1a
         private_ip_address_allocation = "Dynamic"
-        public_ip_address_id          = azurerm_public_ip.vm01_pip_public.id
+        public_ip_address_id          = azurerm_public_ip.vm01_pip_public1a.id
     }
 }
 
