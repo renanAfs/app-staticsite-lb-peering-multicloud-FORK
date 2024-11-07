@@ -47,6 +47,8 @@ jobs:
         aws-session-token    : ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region           : us-east-1
     - run: terraform -chdir=./terraform/aws init
+    # - run : pip3 install checkov
+    # - run : checkov --directory ./terraform
     - run: terraform -chdir=./terraform/aws plan -out tfplan
     - run: terraform -chdir=./terraform/aws apply tfplan
     - run: terraform -chdir=./terraform/aws show
@@ -60,6 +62,8 @@ jobs:
         terraform_version: $TERRAFORM_VERSION
     - uses: actions/checkout@v4
     - run: terraform -chdir=./terraform/azure init
+    # - run : pip3 install checkov
+    # - run : checkov --directory ./terraform
     - run: terraform -chdir=./terraform/azure plan -out tfplan
     - run: terraform -chdir=./terraform/azure apply tfplan
     - run: terraform -chdir=./terraform/azure show

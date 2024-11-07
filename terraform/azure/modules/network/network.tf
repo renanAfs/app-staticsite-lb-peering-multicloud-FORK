@@ -1,3 +1,8 @@
+resource "azurerm_resource_group" "rg" {
+    name     = "rg-staticsitelbpeering"
+    location = "canadacentral"
+}
+
 resource "azurerm_virtual_network" "vnet10" {
     name                = "vnet10"
     location            = azurerm_resource_group.rg.location
@@ -26,11 +31,18 @@ resource "azurerm_virtual_network_peering" "vnet20-to-vnet10" {
   remote_virtual_network_id = azurerm_virtual_network.vnet10.id
 }
 
-resource "azurerm_subnet" "snvnet10pub" {
-    name                 = "snvnet10pub"
+resource "azurerm_subnet" "snvnet10pub1a" {
+    name                 = "snvnet10pub1a"
     resource_group_name  = azurerm_resource_group.rg.name
     virtual_network_name = azurerm_virtual_network.vnet10.name
     address_prefixes     = ["10.0.1.0/24"]
+}
+
+resource "azurerm_subnet" "snvnet10pub1b" {
+    name                 = "snvnet10pub1b"
+    resource_group_name  = azurerm_resource_group.rg.name
+    virtual_network_name = azurerm_virtual_network.vnet10.name
+    address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_subnet" "snvnet20priv" {

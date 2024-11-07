@@ -76,3 +76,9 @@ O arquivo `multiprovider.yaml` define um workflow do GitHub Actions para automat
 6. **Mostrar o Estado**: Exibe o estado dos recursos provisionados.
 
 Para executar o workflow, certifique-se de que as variáveis de ambiente necessárias estão configuradas corretamente no GitHub Actions.
+
+1- Adicionar app nas máquinas virtuais
+2- Adicionar load balancer
+3- Executar checkov
+4- Transformar em estrutura de módulos (network, compute)
+5- Adicionar validação de variável (imagem)

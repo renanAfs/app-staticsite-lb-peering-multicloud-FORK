@@ -8,9 +8,16 @@ resource "aws_vpc" "vpc20" {
     enable_dns_hostnames = "true"
 }
 
-resource "aws_subnet" "sn_vpc10_pub" {
+resource "aws_subnet" "sn_vpc10_pub1a" {
     vpc_id                  = aws_vpc.vpc10.id
     cidr_block              = "10.0.1.0/24"
+    availability_zone       = "us-east-1a"
+    map_public_ip_on_launch = true
+}
+
+resource "aws_subnet" "sn_vpc10_pub1b" {
+    vpc_id                  = aws_vpc.vpc10.id
+    cidr_block              = "10.0.2.0/24"
     availability_zone       = "us-east-1a"
     map_public_ip_on_launch = true
 }
@@ -22,7 +29,7 @@ resource "aws_subnet" "sn_vpc20_priv" {
 }
 
 resource "aws_vpc_peering_connection" "vpc_peering" {
-    peer_vpc_id   = aws_vpc.vpc20.id
+    peer_vpc_id   = aws_vpc.vpc20.id 
     vpc_id        = aws_vpc.vpc10.id
     auto_accept   = true  
 }
