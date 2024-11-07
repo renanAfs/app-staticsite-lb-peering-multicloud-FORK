@@ -58,8 +58,13 @@ resource "aws_route_table" "rt_sn_vpc20_priv" {
     }
 }
 
-resource "aws_route_table_association" "rt_sn_vpc10_pub_To_sn_vpc10_pub" {
-  subnet_id      = aws_subnet.sn_vpc10_pub.id
+resource "aws_route_table_association" "rt_sn_vpc10_pub_To_sn_vpc10_pub1a" {
+  subnet_id      = aws_subnet.sn_vpc10_pub1a.id
+  route_table_id = aws_route_table.rt_sn_vpc10_pub.id
+}
+
+resource "aws_route_table_association" "rt_sn_vpc10_pub_To_sn_vpc10_pub1b" {
+  subnet_id      = aws_subnet.sn_vpc10_pub1b.id
   route_table_id = aws_route_table.rt_sn_vpc10_pub.id
 }
 

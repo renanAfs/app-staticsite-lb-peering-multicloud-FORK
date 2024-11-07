@@ -23,7 +23,7 @@ resource "aws_security_group" "sg_elb" {
 
 resource "aws_security_group" "sg_public" {
     name   = "sg_public"
-    vpc_id = aws_vpc.vpc10.id
+    vpc_id = var.vpc10_id
     egress {
         from_port   = 0
         to_port     = 0
@@ -52,7 +52,7 @@ resource "aws_security_group" "sg_public" {
 
 resource "aws_security_group" "sg_private" {
     name   = "sg_private"
-    vpc_id = aws_vpc.vpc20.id
+    vpc_id = var.vpc20_id
     egress {
         from_port   = 0
         to_port     = 0
@@ -93,7 +93,7 @@ resource "aws_lb_listener" "ec2_lb_listener" {
 }
 
 data "template_file" "user_data" {
-  template = file("./aws/modules/compute/scripts/userdata.sh")
+  template = file("./modules/compute/scripts/userdata.sh")
 }
 
 resource "aws_instance" "ec2_public1a" {
