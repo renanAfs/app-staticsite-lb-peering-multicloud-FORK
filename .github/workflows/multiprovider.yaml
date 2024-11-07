@@ -64,7 +64,7 @@ jobs:
     - run: terraform -chdir=./terraform/azure init
     # - run : pip3 install checkov
     # - run : checkov --directory ./terraform
-    - run: terraform -chdir=./terraform/azure plan-out tfplan
+    - run: terraform -chdir=./terraform/azure plan -out tfplan
     - run: terraform -chdir=./terraform/azure apply tfplan
     - run: terraform -chdir=./terraform/azure show
     
