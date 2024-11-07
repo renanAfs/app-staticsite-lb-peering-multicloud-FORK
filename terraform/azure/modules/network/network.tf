@@ -86,8 +86,13 @@ resource "azurerm_network_security_group" "nsgvnet20" {
     }
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsgsnvnet10pub" {
-    subnet_id                 = azurerm_subnet.snvnet10pub.id
+resource "azurerm_subnet_network_security_group_association" "nsgsnvnet10pub1a" {
+    subnet_id                 = azurerm_subnet.snvnet10pub1a.id
+    network_security_group_id = azurerm_network_security_group.nsgvnet10.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "nsgsnvnet10pub1b" {
+    subnet_id                 = azurerm_subnet.snvnet10pub1b.id
     network_security_group_id = azurerm_network_security_group.nsgvnet10.id
 }
 
