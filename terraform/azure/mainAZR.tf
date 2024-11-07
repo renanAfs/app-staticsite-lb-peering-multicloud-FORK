@@ -1,9 +1,9 @@
 module "network" {
- source = "./azure/modules/network"
+ source = "./modules/network"
 }
 
 module "compute" {
- source = "./azure/modules/compute"
+ source = "./modules/compute"
   rg = module.network.rg
   vnet10 = module.network.vnet10
   vnet20 = module.network.vnet20

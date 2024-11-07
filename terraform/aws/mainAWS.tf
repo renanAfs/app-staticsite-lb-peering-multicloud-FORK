@@ -1,9 +1,9 @@
 module "network" {
- source = "./aws/modules/network"
+ source = "./modules/network"
 }
 
 module "compute" {
- source = "./aws/modules/compute"
+ source = "./modules/compute"
  ec2_ami = "ami-0f409bae3775dc8e5"
  vpc10_id = module.network.vpc10_id
  vpc20_id = module.network.vpc20_id
