@@ -26,15 +26,15 @@ resource "azurerm_public_ip" "vm01_pip_public1a" {
     location            = var.rglocation
   resource_group_name = var.rgname
     allocation_method   = "Static"
-    domain_name_label   = "vm01-pip-public"
+    domain_name_label   = "vm01-pip-public1a"
 }
 
-resource "azurerm_network_interface" "vm01_nic_public" {
+resource "azurerm_network_interface" "vm01_nic_public1a" {
     name                = "vm01-nic-public"
     location            = var.rglocation
   resource_group_name = var.rgname
     ip_configuration {
-        name                          = "vm01-ipconfig-public"
+        name                          = "vm01-ipconfig-public1a"
         subnet_id                     = var.snvnet10pub1a
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.vm01_pip_public1a.id
@@ -45,7 +45,7 @@ resource "azurerm_virtual_machine" "vm01_public" {
     name                          = "vm01-public"
     location            = var.rglocation
   resource_group_name = var.rgname
-    network_interface_ids         = [azurerm_network_interface.vm01_nic_public.id]
+    network_interface_ids         = [azurerm_network_interface.vm01_nic_public1a.id]
     vm_size                       = "Standard_D2s_v3"
     delete_os_disk_on_termination = true
     storage_image_reference {
