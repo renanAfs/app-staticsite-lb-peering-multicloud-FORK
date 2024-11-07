@@ -3,7 +3,7 @@ name: Terraform Multicloud
 on:
   push:
     branches:
-    - main
+      - main
 
 env:
   TERRAFORM_VERSION  : 1.9.8
