@@ -3,7 +3,6 @@ variable "vpc20_id" {}
 variable "sn_vpc10_pub1a" {}
 variable "sn_vpc10_pub1b" {}
 variable "sn_vpc20_priv" {}
-variable "sn_vpc10_priv" {}
 variable "ec2_ami" {
    type    = string
    default = "ami-02e136e904f3da870"

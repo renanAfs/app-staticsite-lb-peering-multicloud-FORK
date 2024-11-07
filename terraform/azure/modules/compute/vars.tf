@@ -1,4 +1,5 @@
-variable "rg" {}
+variable "rgname" {}
+variable "rglocation" {}
 variable "vnet10" {}
 variable "vnet20" {}
 variable "snvnet10pub1a" {}

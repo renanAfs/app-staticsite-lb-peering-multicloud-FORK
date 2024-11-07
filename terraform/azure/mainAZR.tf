@@ -4,7 +4,8 @@ module "network" {
 
 module "compute" {
  source = "./modules/compute"
-  rg = module.network.rg
+  rgname = module.network.rgname
+  rglocation = module.network.location
   vnet10 = module.network.vnet10
   vnet20 = module.network.vnet20
   snvnet10pub1a = module.network.snvnet10pub1a

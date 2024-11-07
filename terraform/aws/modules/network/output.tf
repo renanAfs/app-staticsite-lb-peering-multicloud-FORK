@@ -18,9 +18,7 @@ output "sn_vpc20_priv" {
  value = aws_subnet.sn_vpc20_priv.id
 }
 
-output "sn_vpc10_priv" {
- value = aws_subnet.sn_vpc10_priv.id
-}
+
 
 
 
